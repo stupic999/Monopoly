@@ -21,7 +21,7 @@ public class Map : MonoBehaviour
     string hospital = "Hospital";
     string carShop = "Car Shop";
 
-    private void Start()
+    private void Awake()
     {
         // 第一行
         placeName[0] = start;
