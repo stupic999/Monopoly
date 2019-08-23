@@ -21,28 +21,20 @@ public class Dice : MonoBehaviour
         placeNumTxt.text = "placeName = " + map.placeName[playerNum];
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RollDice();
-            playerNum += DiceNum;
-            DiceNum = 0;
-            if (playerNum > 35)
-            {
-                playerNum = playerNum % 35;
-            }
-            playerNumTxt.text= "playerNum = " + playerNum;
-            Debug.Log("playerNum = " + playerNum);
-            placeNumTxt.text = "placeName = " + map.placeName[playerNum];
-            Debug.Log("placeName = " + map.placeName[playerNum]);
-        }
-    }
-
     public void RollDice()
     {
         DiceNum = Random.Range(1, 7);
         diceNumTxt.text = "DiceNum = " + DiceNum;
         Debug.Log("DiceNum = " + DiceNum);
+        playerNum += DiceNum;
+        DiceNum = 0;
+        if (playerNum > 35)
+        {
+            playerNum = playerNum % 35;
+        }
+        playerNumTxt.text = "playerNum = " + playerNum;
+        Debug.Log("playerNum = " + playerNum);
+        placeNumTxt.text = "placeName = " + map.placeName[playerNum];
+        Debug.Log("placeName = " + map.placeName[playerNum]);
     }
 }
