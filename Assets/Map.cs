@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    // Chat log> player move
+    // Serealize json object
     public string[] placeName = new string[36];
     string start = "Start";
     string dairyLife = "Dairy Life";

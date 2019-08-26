@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
+    string playerOccupation="Student";
     int DiceNum;
     int playerNum;
     [SerializeField]
@@ -28,13 +29,31 @@ public class Dice : MonoBehaviour
         Debug.Log("DiceNum = " + DiceNum);
         playerNum += DiceNum;
         DiceNum = 0;
-        if (playerNum > 35)
-        {
-            playerNum = playerNum % 35;
-        }
-        playerNumTxt.text = "playerNum = " + playerNum;
-        Debug.Log("playerNum = " + playerNum);
-        placeNumTxt.text = "placeName = " + map.placeName[playerNum];
-        Debug.Log("placeName = " + map.placeName[playerNum]);
+        //if (playerOccupation != "Student")
+        //{
+            if (playerNum > 35)
+            {
+                playerNum = playerNum % 35;
+            }
+            playerNumTxt.text = "playerNum = " + playerNum;
+            Debug.Log("playerNum = " + playerNum);
+            placeNumTxt.text = "placeName = " + map.placeName[playerNum];
+            Debug.Log("placeName = " + map.placeName[playerNum]);
+//    }
+//        else
+//        {
+//            if (playerNum > 16)
+//            {
+//                playerNum = playerNum % 16;
+//                playerNumTxt.text = "playerNum = " + playerNum;
+//                Debug.Log("playerNum = " + playerNum);
+//                 學校地圖事件
+//}
+//        }
+    }
+
+    public void SchoolEvent()
+    {
+        
     }
 }
