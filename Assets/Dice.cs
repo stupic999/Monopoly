@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
-    string playerOccupation="Student";
+    bool isSchool=true;
     int DiceNum;
     int playerNum;
     [SerializeField]
     Map map;
+    [SerializeField]
+    School school;
 
     public Text diceNumTxt;
     public Text playerNumTxt;
@@ -29,8 +31,8 @@ public class Dice : MonoBehaviour
         Debug.Log("DiceNum = " + DiceNum);
         playerNum += DiceNum;
         DiceNum = 0;
-        //if (playerOccupation != "Student")
-        //{
+        if (!isSchool)
+        {
             if (playerNum > 35)
             {
                 playerNum = playerNum % 35;
@@ -39,17 +41,18 @@ public class Dice : MonoBehaviour
             Debug.Log("playerNum = " + playerNum);
             placeNumTxt.text = "placeName = " + map.placeName[playerNum];
             Debug.Log("placeName = " + map.placeName[playerNum]);
-//    }
-//        else
-//        {
-//            if (playerNum > 16)
-//            {
-//                playerNum = playerNum % 16;
-//                playerNumTxt.text = "playerNum = " + playerNum;
-//                Debug.Log("playerNum = " + playerNum);
-//                 學校地圖事件
-//}
-//        }
+        }
+        else if (isSchool)
+        {
+            if (playerNum > 16)
+            {
+                playerNum = playerNum % 16;
+            }
+            playerNumTxt.text = "playerNum = " + playerNum;
+            Debug.Log("playerNum = " + playerNum);
+            placeNumTxt.text = "schoolName = " + school.schoolName[playerNum];
+            Debug.Log("placeName = " + school.schoolName[playerNum]);
+        }
     }
 
     public void SchoolEvent()
